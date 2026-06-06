@@ -470,6 +470,18 @@
       --secondary: #5ee9ff;
       --accent: #ff9bcf;
     }
+    body[data-theme='noir'] {
+      --bg-0: #04050a;
+      --bg-1: #090d17;
+      --bg-2: #111a2b;
+      --text: #e5e8f3;
+      --muted: #a3a9bf;
+      --primary: #d6d9e7;
+      --secondary: #7c86a8;
+      --accent: #c4a45b;
+      --card: rgba(12, 16, 27, 0.82);
+      --border: rgba(136, 147, 179, 0.28);
+    }
   </style>
 </head>
 <body>
@@ -494,7 +506,7 @@
     <section id="hero" class="hero">
       <div class="kicker glass">⚡ Offensive Security • AI Systems • Full-Stack Builder</div>
       <h1>
-        Md. Abu Naser Nayeem_T@n?!B<br />
+        Kaizer Al Bosry<br />
         <span class="glow">369emon</span>
       </h1>
       <p class="subtitle">Cybersecurity • Intelligence • Automation • Offense</p>
@@ -523,6 +535,7 @@
           <div class="control-field">
             <label for="themeSelect">Visual Theme</label>
             <select id="themeSelect">
+              <option value="noir">Noir Dark</option>
               <option value="cyber">Cyber Pulse</option>
               <option value="forensic">Forensic Spectrum</option>
               <option value="ai">AI Aurora</option>
@@ -550,7 +563,7 @@
             </p>
             <div class="card" style="margin-top: 0.8rem;">
               <h3>Professional Profile</h3>
-              <p><strong>Hasan Al Bosry (Kaiser)</strong> — Consulting Deductive Analyst, Cybersecurity Specialist, Forensic Analyst, Author, and Software Developer.</p>
+              <p><strong>Kaizer Al Bosry</strong> — Consulting Deductive Analyst, Cybersecurity Specialist, Forensic Analyst, Author, and Software Developer.</p>
               <p style="margin-top: 0.45rem;">Founder &amp; Owner of <strong>PRIVATE INTELLIGENCE FRAMEWORK</strong>, leading high-impact research, OSINT, cyber investigation, data analysis, and technology-driven strategic problem solving.</p>
             </div>
             <div class="card" style="margin-top: 0.8rem;">
@@ -560,7 +573,7 @@
             </div>
           </div>
           <div class="avatar-wrap">
-            <img class="avatar" src="https://github.com/369emon/Stamford-bba-app/blob/main/emon.jpg?raw=true" alt="Hasan Al Bosry Emon" />
+            <img class="avatar" src="https://github.com/369emon/Stamford-bba-app/blob/main/emon.jpg?raw=true" alt="Kaizer Al Bosry" />
           </div>
         </div>
       </div>
@@ -586,6 +599,7 @@
       <h2 class="section-title">Services</h2>
       <div class="grid-3">
         <article class="card focusable-card" data-focus="cyber,consulting"><h3>Cybersecurity Consulting</h3><p>Comprehensive security assessments, vulnerability management, penetration testing, and security strategy.</p></article>
+        <article class="card focusable-card" data-focus="consulting,forensics,data"><h3>Consulting Deductive Analyst Support</h3><p>Career advice, legal/document issue review, forensic analysis guidance, and strategic support with forensic tools and OSINT workflows.</p></article>
         <article class="card focusable-card" data-focus="iot,cyber"><h3>IoT Security Solutions</h3><p>Secure IoT design, device security, data protection, and risk management for connected systems.</p></article>
         <article class="card focusable-card" data-focus="cyber,forensics"><h3>Incident Response</h3><p>Rapid incident handling, threat analysis, malware remediation, and recovery planning.</p></article>
         <article class="card focusable-card" data-focus="consulting,cyber"><h3>Security Training &amp; Awareness</h3><p>Customized organizational training to raise security culture and improve resilience.</p></article>
@@ -609,6 +623,15 @@
             <li>Forensic analysis of logs, metadata, and hex-level evidence</li>
             <li>Advanced OSINT-driven cyber investigation and footprint tracking</li>
             <li>Evidence gathering and legal memorandum support</li>
+          </ul>
+        </article>
+        <article class="card focusable-card" data-focus="forensics,consulting,data">
+          <h3>Forensic Assessment Process</h3>
+          <ul class="list-tight">
+            <li><strong>Metadata Analysis:</strong> Verify creation time, modification history, and device traces against the claimed timeline</li>
+            <li><strong>Consistency Review:</strong> Cross-check evidence with known facts and communication logs to identify discrepancies</li>
+            <li><strong>Forensic Verification:</strong> Examine formatting, image integrity, and records for signs of tampering or manipulation</li>
+            <li>Deliver a clear, evidence-based report to support formal challenge with relevant authorities</li>
           </ul>
         </article>
         <article class="card focusable-card" data-focus="data,consulting,iot">
@@ -755,7 +778,7 @@
     });
 
     applyFocus('all');
-    applyTheme('cyber');
+    applyTheme('noir');
     applyMotion();
 
     const form = document.getElementById('contact-form');
