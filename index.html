@@ -157,6 +157,48 @@
       justify-content: center;
     }
 
+    .experience-panel {
+      margin-top: 1.25rem;
+      padding: 1rem;
+      text-align: left;
+    }
+
+    .control-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      align-items: end;
+    }
+
+    .control-field label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #c7d7ff;
+      margin-bottom: 0.35rem;
+    }
+
+    .control-field select {
+      width: 100%;
+      border: 1px solid rgba(147, 176, 241, 0.35);
+      background: rgba(13, 23, 44, 0.85);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.62rem 0.7rem;
+      font-family: inherit;
+    }
+
+    .control-field button {
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .experience-hint {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
     .btn {
       border: 1px solid transparent;
       padding: 0.8rem 1.25rem;
@@ -237,6 +279,20 @@
       transform: translateY(-4px);
       border-color: rgba(94, 233, 255, 0.44);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .focusable-card {
+      transition: 0.3s ease;
+    }
+
+    .focusable-card.focus-match {
+      border-color: rgba(94, 233, 255, 0.5);
+      box-shadow: 0 0 0 1px rgba(94, 233, 255, 0.3), 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .focusable-card.focus-muted {
+      opacity: 0.45;
+      transform: scale(0.98);
     }
 
     .card h3 {
@@ -385,6 +441,7 @@
       #projectList {
         grid-template-columns: 1fr 1fr;
       }
+      .control-grid { grid-template-columns: 1fr 1fr; }
       .grid-4 { grid-template-columns: 1fr; }
     }
 
@@ -398,6 +455,20 @@
       #projectList {
         grid-template-columns: 1fr;
       }
+      .control-grid { grid-template-columns: 1fr; }
+    }
+
+    body.motion-calm #bg-canvas { opacity: 0.45; }
+    body.motion-calm .glow { animation-duration: 4.2s; }
+    body[data-theme='forensic'] {
+      --primary: #8db6ff;
+      --secondary: #a68cff;
+      --accent: #8fffd4;
+    }
+    body[data-theme='ai'] {
+      --primary: #ffd166;
+      --secondary: #5ee9ff;
+      --accent: #ff9bcf;
     }
   </style>
 </head>
@@ -409,6 +480,7 @@
     <nav>
       <ul>
         <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -429,6 +501,39 @@
       <div class="hero-cta">
         <a href="#about" class="btn btn-primary">Explore Profile</a>
         <a href="#contact" class="btn btn-outline">Hire / Collaborate</a>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="glass experience-panel">
+        <h2 class="section-title">Immersive Experience Options</h2>
+        <div class="control-grid">
+          <div class="control-field">
+            <label for="focusSelect">Focus Domain</label>
+            <select id="focusSelect">
+              <option value="all">All Domains</option>
+              <option value="cyber">Cybersecurity</option>
+              <option value="forensics">Forensics</option>
+              <option value="data">Data Analysis</option>
+              <option value="consulting">Consulting</option>
+              <option value="iot">IoT</option>
+              <option value="ai">Artificial Intelligence</option>
+            </select>
+          </div>
+          <div class="control-field">
+            <label for="themeSelect">Visual Theme</label>
+            <select id="themeSelect">
+              <option value="cyber">Cyber Pulse</option>
+              <option value="forensic">Forensic Spectrum</option>
+              <option value="ai">AI Aurora</option>
+            </select>
+          </div>
+          <div class="control-field">
+            <label for="motionToggle">Motion Mode</label>
+            <button id="motionToggle" class="btn btn-outline" type="button">Switch to Calm Motion</button>
+          </div>
+        </div>
+        <p id="experienceHint" class="experience-hint">Choose any option to personalize this cyber-forensics-AI portfolio view.</p>
       </div>
     </section>
 
@@ -464,12 +569,12 @@
     <section id="skills">
       <h2 class="section-title">Skills &amp; Expertise</h2>
       <div class="grid-3">
-        <article class="card"><h3>🔐 Offensive Security &amp; Red Teaming</h3><p>Adversarial mindset, attack simulation, exploit analysis, and offensive tradecraft.</p></article>
-        <article class="card"><h3>🛡️ Defensive Security &amp; Blue Teaming</h3><p>Threat detection, incident handling, defense validation, and resilient architecture.</p></article>
-        <article class="card"><h3>🧠 AI &amp; Machine Learning</h3><ul class="list-tight"><li>Deep Learning (CNNs, Transformers, RNNs)</li><li>PyTorch, TensorFlow, Scikit-learn</li><li>Adversarial ML &amp; model evasion</li><li>Computer Vision (OpenCV, YOLO)</li></ul></article>
-        <article class="card"><h3>⚙️ Full Stack Development</h3><p>Secure software engineering, API design, app delivery, and production hardening.</p></article>
-        <article class="card"><h3>🌐 Networking &amp; Infrastructure</h3><ul class="list-tight"><li>TCP/IP, DNS, Routing, VLANs</li><li>Packet analysis and network pentesting</li><li>Secure architecture design</li></ul></article>
-        <article class="card"><h3>📡 IoT + Tooling</h3><ul class="list-tight"><li>Docker, Git, Linux, Bash, Kubernetes</li><li>VMware, VirtualBox, Ghidra, IDA, x64dbg</li></ul></article>
+        <article class="card focusable-card" data-focus="cyber,consulting"><h3>🔐 Offensive Security &amp; Red Teaming</h3><p>Adversarial mindset, attack simulation, exploit analysis, and offensive tradecraft.</p></article>
+        <article class="card focusable-card" data-focus="cyber,forensics,consulting"><h3>🛡️ Defensive Security &amp; Blue Teaming</h3><p>Threat detection, incident handling, defense validation, and resilient architecture.</p></article>
+        <article class="card focusable-card" data-focus="ai,data"><h3>🧠 AI &amp; Machine Learning</h3><ul class="list-tight"><li>Deep Learning (CNNs, Transformers, RNNs)</li><li>PyTorch, TensorFlow, Scikit-learn</li><li>Adversarial ML &amp; model evasion</li><li>Computer Vision (OpenCV, YOLO)</li></ul></article>
+        <article class="card focusable-card" data-focus="consulting,data,cyber"><h3>⚙️ Full Stack Development</h3><p>Secure software engineering, API design, app delivery, and production hardening.</p></article>
+        <article class="card focusable-card" data-focus="cyber,iot"><h3>🌐 Networking &amp; Infrastructure</h3><ul class="list-tight"><li>TCP/IP, DNS, Routing, VLANs</li><li>Packet analysis and network pentesting</li><li>Secure architecture design</li></ul></article>
+        <article class="card focusable-card" data-focus="iot,cyber"><h3>📡 IoT + Tooling</h3><ul class="list-tight"><li>Docker, Git, Linux, Bash, Kubernetes</li><li>VMware, VirtualBox, Ghidra, IDA, x64dbg</li></ul></article>
       </div>
       <div class="card" style="margin-top: 1rem;">
         <h3>🛠️ My Creation &amp; Contribution</h3>
@@ -480,17 +585,17 @@
     <section id="services">
       <h2 class="section-title">Services</h2>
       <div class="grid-3">
-        <article class="card"><h3>Cybersecurity Consulting</h3><p>Comprehensive security assessments, vulnerability management, penetration testing, and security strategy.</p></article>
-        <article class="card"><h3>IoT Security Solutions</h3><p>Secure IoT design, device security, data protection, and risk management for connected systems.</p></article>
-        <article class="card"><h3>Incident Response</h3><p>Rapid incident handling, threat analysis, malware remediation, and recovery planning.</p></article>
-        <article class="card"><h3>Security Training &amp; Awareness</h3><p>Customized organizational training to raise security culture and improve resilience.</p></article>
-        <article class="card"><h3>Cloud Security</h3><p>Secure cloud migration, architecture design, and continuous security monitoring (AWS, Azure, GCP).</p></article>
-        <article class="card"><h3>Vulnerability Management</h3><p>Proactive vulnerability discovery, prioritization, and remediation across systems and applications.</p></article>
+        <article class="card focusable-card" data-focus="cyber,consulting"><h3>Cybersecurity Consulting</h3><p>Comprehensive security assessments, vulnerability management, penetration testing, and security strategy.</p></article>
+        <article class="card focusable-card" data-focus="iot,cyber"><h3>IoT Security Solutions</h3><p>Secure IoT design, device security, data protection, and risk management for connected systems.</p></article>
+        <article class="card focusable-card" data-focus="cyber,forensics"><h3>Incident Response</h3><p>Rapid incident handling, threat analysis, malware remediation, and recovery planning.</p></article>
+        <article class="card focusable-card" data-focus="consulting,cyber"><h3>Security Training &amp; Awareness</h3><p>Customized organizational training to raise security culture and improve resilience.</p></article>
+        <article class="card focusable-card" data-focus="cyber,consulting"><h3>Cloud Security</h3><p>Secure cloud migration, architecture design, and continuous security monitoring (AWS, Azure, GCP).</p></article>
+        <article class="card focusable-card" data-focus="cyber,data"><h3>Vulnerability Management</h3><p>Proactive vulnerability discovery, prioritization, and remediation across systems and applications.</p></article>
       </div>
 
       <h3 class="section-title" style="margin-top: 1rem; font-size: 1.35rem;">Advanced Services Portfolio</h3>
       <div class="grid-4">
-        <article class="card">
+        <article class="card focusable-card" data-focus="cyber,consulting">
           <h3>Cybersecurity &amp; Red Teaming</h3>
           <ul class="list-tight">
             <li>VAPT and threat hunting across systems, servers, and networks</li>
@@ -498,7 +603,7 @@
             <li>Cyber risk assessment with security architecture guidance</li>
           </ul>
         </article>
-        <article class="card">
+        <article class="card focusable-card" data-focus="forensics,data,consulting">
           <h3>Digital Forensics &amp; OSINT</h3>
           <ul class="list-tight">
             <li>Forensic analysis of logs, metadata, and hex-level evidence</li>
@@ -506,7 +611,7 @@
             <li>Evidence gathering and legal memorandum support</li>
           </ul>
         </article>
-        <article class="card">
+        <article class="card focusable-card" data-focus="data,consulting,iot">
           <h3>Software Development &amp; Automation</h3>
           <ul class="list-tight">
             <li>Custom security and investigation tools under Nineder Terminal Environment</li>
@@ -514,7 +619,7 @@
             <li>Secure software engineering with security-by-design principles</li>
           </ul>
         </article>
-        <article class="card">
+        <article class="card focusable-card" data-focus="ai,data,consulting">
           <h3>Agentic AI &amp; Intelligent Solutions</h3>
           <ul class="list-tight">
             <li>Autonomous Agentic AI systems for complex task execution</li>
@@ -604,6 +709,54 @@
     window.addEventListener('scroll', setActiveLink);
     setActiveLink();
 
+    const focusSelect = document.getElementById('focusSelect');
+    const themeSelect = document.getElementById('themeSelect');
+    const motionToggle = document.getElementById('motionToggle');
+    const experienceHint = document.getElementById('experienceHint');
+    const focusableCards = document.querySelectorAll('.focusable-card');
+    let calmMotion = false;
+
+    const focusNames = {
+      all: 'all portfolio domains',
+      cyber: 'cybersecurity',
+      forensics: 'digital forensics',
+      data: 'data analysis',
+      consulting: 'consulting strategy',
+      iot: 'IoT systems',
+      ai: 'artificial intelligence'
+    };
+
+    const applyFocus = (focus) => {
+      focusableCards.forEach((card) => {
+        const domains = (card.dataset.focus || '').split(',');
+        const isMatch = focus === 'all' || domains.includes(focus);
+        card.classList.toggle('focus-match', isMatch);
+        card.classList.toggle('focus-muted', !isMatch);
+      });
+      experienceHint.textContent = `Focused view: ${focusNames[focus] || 'all portfolio domains'}.`;
+    };
+
+    const applyTheme = (theme) => {
+      document.body.dataset.theme = theme;
+    };
+
+    const applyMotion = () => {
+      document.body.classList.toggle('motion-calm', calmMotion);
+      motionToggle.textContent = calmMotion ? 'Switch to Dynamic Motion' : 'Switch to Calm Motion';
+      if (typeof initParticles === 'function') initParticles();
+    };
+
+    focusSelect.addEventListener('change', (event) => applyFocus(event.target.value));
+    themeSelect.addEventListener('change', (event) => applyTheme(event.target.value));
+    motionToggle.addEventListener('click', () => {
+      calmMotion = !calmMotion;
+      applyMotion();
+    });
+
+    applyFocus('all');
+    applyTheme('cyber');
+    applyMotion();
+
     const form = document.getElementById('contact-form');
     const formResponse = document.getElementById('form-response');
 
@@ -668,7 +821,9 @@
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
     const particles = [];
-    const particleCount = 52;
+    const getParticleCount = () => (document.body.classList.contains('motion-calm') ? 28 : 52);
+    const getParticleSpeedScale = () => (document.body.classList.contains('motion-calm') ? 0.18 : 0.35);
+    const getParticleLinkDistance = () => (document.body.classList.contains('motion-calm') ? 84 : 120);
 
     function resizeCanvas() {
       canvas.width = window.innerWidth;
@@ -680,13 +835,14 @@
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         radius: Math.random() * 1.8 + 0.6,
-        speedX: (Math.random() - 0.5) * 0.35,
-        speedY: (Math.random() - 0.5) * 0.35,
+        speedX: (Math.random() - 0.5) * getParticleSpeedScale(),
+        speedY: (Math.random() - 0.5) * getParticleSpeedScale(),
       };
     }
 
     function initParticles() {
       particles.length = 0;
+      const particleCount = getParticleCount();
       for (let i = 0; i < particleCount; i += 1) {
         particles.push(createParticle());
       }
@@ -711,7 +867,7 @@
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist < getParticleLinkDistance()) {
             ctx.strokeStyle = `rgba(138, 125, 255, ${0.2 - dist / 800})`;
             ctx.lineWidth = 0.8;
             ctx.beginPath();
