@@ -715,6 +715,7 @@
     const experienceHint = document.getElementById('experienceHint');
     const focusableCards = document.querySelectorAll('.focusable-card');
     let calmMotion = false;
+    let particlesReady = false;
 
     const focusNames = {
       all: 'all portfolio domains',
@@ -743,7 +744,7 @@
     const applyMotion = () => {
       document.body.classList.toggle('motion-calm', calmMotion);
       motionToggle.textContent = calmMotion ? 'Switch to Dynamic Motion' : 'Switch to Calm Motion';
-      if (typeof initParticles === 'function') initParticles();
+      if (particlesReady) initParticles();
     };
 
     focusSelect.addEventListener('change', (event) => applyFocus(event.target.value));
@@ -883,6 +884,7 @@
 
     resizeCanvas();
     initParticles();
+    particlesReady = true;
     animateParticles();
 
     window.addEventListener('resize', () => {
